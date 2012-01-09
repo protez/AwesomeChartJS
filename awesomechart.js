@@ -42,9 +42,14 @@ Array.prototype.min = function() {
     return min;
 }
 
-function AwesomeChart(canvasElementId){
+function AwesomeChartFromId(canvasElementId){
     var canvas = document.getElementById(canvasElementId);
-    this.ctx = canvas.getContext('2d');
+    
+    return new AwesomeChart(canvas.getContext('2d'));
+}
+
+function AwesomeChart(ctx2d) {
+    this.ctx = ctx2d;
     this.width = this.ctx.canvas.width;
     this.height = this.ctx.canvas.height;
     
@@ -1065,3 +1070,4 @@ function AwesomeChart(canvasElementId){
     
 }
 
+exports.ac = AwesomeChart;
